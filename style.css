@@ -45,12 +45,16 @@ body {
 
 ul li {
   list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
   padding-bottom: 10px;
   position: relative;
   font-size: 18px;
   padding-left: 10px;
   text-transform: capitalize;
+  cursor: pointer;
 }
 
 ul li::before {
@@ -66,12 +70,29 @@ ul li::before {
   top: -3px;
 }
 
-ul li.check {
+ul li.checked {
   text-decoration: line-through;
 }
 
-ul li.check::before {
+ul li.checked::before {
   background-image: url("/images/checked.png");
+}
+
+ul li span {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+
+  font-size: 25px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+ul li span:hover {
+  background: #edeef0;
 }
 
 @media (max-width: 560px) {
