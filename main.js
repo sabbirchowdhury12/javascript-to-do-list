@@ -59,7 +59,9 @@ taskList.addEventListener("click", function (e) {
     e.target.tagName === "I" &&
     e.target.parentNode.tagName === "SPAN"
   ) {
+    ind = e.target.parentNode.parentNode.getAttribute("id");
     task.splice(ind, 1);
+    console.log(ind);
     localStorage.setItem("Task", JSON.stringify(task));
     showTask();
   }
