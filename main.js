@@ -3,6 +3,7 @@ let taskList = document.getElementById("task-list");
 let addSection = document.getElementById("add-form");
 let editSectiom = document.getElementById("edit-form");
 let editInput = document.getElementById("edit-input");
+let searchInput = document.getElementById("search-input");
 
 let task = JSON.parse(localStorage.getItem("Task")) || [];
 
@@ -67,3 +68,17 @@ taskList.addEventListener("click", function (e) {
 function saveTask() {
   localStorage.setItem("Task", JSON.stringify(taskList.innerHTML));
 }
+
+searchInput.addEventListener("input", function (e) {
+  let li = document.querySelectorAll("li");
+  li.forEach((item) => {
+    let searchedtext = item.innerText;
+    let searchValue = searchInput.value;
+    let re = new RegExp(searchValue, "gi");
+    if (searchedtext.match(re)) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+});
